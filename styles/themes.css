@@ -4,3 +4,29 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+:root.theme-light {
+    --background: #FFFFFF;
+    --background-color: #d3d3d3;
+    --title-font-weight: "wght" 700;
+    --text-font-weight: "wght" 400;
+    --text-color: #000000;
+    --border: var(--text-color);
+    --lable-border: var(--background);
+    --difference: var(--background);
+    --heart-color: #FF0000;
+    --background-image: repeating-linear-gradient(to right, #d3d3d3 0 2px, rgba(0, 0, 0, 0) 2px 4px), repeating-linear-gradient(to bottom, #d3d3d3 0 2px, rgba(0, 0, 0, 0) 2px 4px), linear-gradient(to bottom, #e7e7e7 .01%, #1a1a1a);
+}
+
+:root.theme-dark {
+    --background: #000000;
+    --background-color: var(--background);
+    --title-font-weight: "wght" 785;
+    --text-font-weight: "wght" 465;
+    --text-color: #00CC14;
+    --border: var(--text-color);
+    --lable-border: var(--background);
+    --difference: var(--text-color);
+    --heart-color: #FF0000;
+    --background-image: repeating-linear-gradient(to right, #000 0 2px, rgba(0, 0, 0, 0) 2px 4px), repeating-linear-gradient(to bottom, #000 0 2px, rgba(0, 0, 0, 0) 2px 4px), linear-gradient(to bottom, #007f0c .01%, #004306);
+}
