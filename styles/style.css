@@ -56,23 +56,11 @@
   margin: 20px 0 25px;
 }
 
-.theme-menu {
-
-}
-
-.header__theme-menu {
-
-}
-
 .theme-menu__list {
   display: flex;
   flex-direction: column;
   gap: 12px;
   font-size: 14px;
-}
-
-.theme-menu__item {
-
 }
 
 .theme-menu__button {
@@ -296,7 +284,7 @@
   cursor: pointer;
   position: relative;
   border: 2px solid var(--border);
-  transition: all 0.5s;
+  transition: 0.5s;
   line-height: 90%;
   
 }
@@ -355,8 +343,8 @@
   height: 21px;
   stroke: var(--text-color);
   margin-right: 8px;
-  /* mix-blend-mode: difference;
-  z-index: 1; */
+  mix-blend-mode: difference;
+  z-index: 1;
 }
 
 @media (width <= 375px) {
@@ -392,7 +380,6 @@
   font-family: var(--extra-font-family);
   font-size: 14px;
   position: relative;
-  /* background: none; */
   border: 2px solid var(--border);
   cursor: pointer;
   overflow: hidden;
