@@ -23,6 +23,11 @@
   background-image: var(--background-image);
   background-attachment: fixed;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 102px;
 }
 
 /* header */
@@ -32,15 +37,18 @@
   text-align: center;
   border: 2px solid var(--border);
   background: var(--background);
-  margin: 100px 372px;
-  padding: 136px 0 23px;
+  margin: 0 auto 100px auto;
+  padding: 134px 0 24px 0;
   width: min(698px, 99%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (width <= 375px) {
   .header {
     padding: 120px 0 24px;
-    margin: 100px 0;
   }
 }
 
@@ -59,8 +67,10 @@
 .theme-menu__list {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 12px;
   font-size: 14px;
+  margin-left: 19px;
 }
 
 .theme-menu__button {
@@ -96,6 +106,11 @@
 }
 
 .theme-menu__button:hover {
+  cursor: pointer;
+}
+
+.theme-menu__button:hover,
+.theme-menu__button:disabled {
   opacity: 0.6;
 }
 
@@ -108,11 +123,16 @@
   opacity: 0.6;
 }
 
-.theme-menu__button:hover::after {
+.theme-menu__button::after {
   content: "▶";
   position: absolute;
   left: -18px;
   animation: play 0.5s infinite ease-in-out;
+  color: transparent;
+}
+
+.theme-menu__button:disabled::after {
+  color: var(--text-color);
 }
 
 @keyframes play {
@@ -132,20 +152,13 @@
 .main {
   display: flex;
   flex-direction: column;
-  gap: 52px;
-}
-
-@media (width <= 375px) {
-  .main {
-    gap: 50px;
-  }
 }
 
 .section {
   display: inherit;
   flex-direction: inherit;
   gap: inherit;
-  margin: 0 372px;
+  margin: 0;
 }
 
 @media (width <= 375px) {
@@ -157,6 +170,8 @@
 .card {
   border: 2px solid var(--border);
   background: var(--background);
+  width: min(698px, 99%);
+  margin: 0 auto 52px auto;
 }
 
 .card__title {
@@ -164,6 +179,12 @@
   font-size: 18px;
   font-family: var(--main-font-family);
   padding: 4px 10px;
+}
+
+@media (width <= 375px) {
+  .card__title {
+  padding: 3px 8px;
+  }
 }
 
 .card__image-container {
@@ -175,7 +196,6 @@
 
 .image-lable {
   font-family: var(--extra-font-family);
-  font-variation-settings: var(--text-font-weight);
   font-size: 14px;
   background-blend-mode: hard-light;
   opacity: 50%;
@@ -185,10 +205,10 @@
   z-index: 1;
   text-shadow: -1px 0 var(--lable-border), 0 1px var(--lable-border), 1px 0 var(--lable-border), 0 -1px var(--lable-border);
 }
-@supports((text-stroke: 1px var(--label-line-color)) or (-webkit-text-stroke: 1px var(--label-line-color))) {
-  .card__item_watermark {
-      -webkit-text-stroke: 1px var(--label-line-color);
-      text-stroke: 1px var(--label-line-color);
+@supports((text-stroke: 1px var(--lable-border)) or (-webkit-text-stroke: 1px var(--lable-border))) {
+  .image-lable {
+      -webkit-text-stroke: 1px var(--lable-border);
+      text-stroke: 1px var(--lable-border);
       text-shadow: none;
   }
 } 
@@ -222,13 +242,13 @@
 
 @media (width <= 375px) {
   .card__text-container {
-    padding: 25px 26px;
+    padding: 26px 24px;
+    margin-top: 2px;
   }
 }
 
 .card__text {
   font-family: var(--main-font-family);
-  font-variation-settings: var(--text-font-weight);
   color: var(--text-color);
 }
 
@@ -266,7 +286,6 @@
 
 .button__text {
   font-family: var(--extra-font-family);
-  font-variation-settings: var(--text-font-weight);
   font-size: 14px;
   color: var(--difference);
   mix-blend-mode: difference;
@@ -310,24 +329,19 @@
   transition: 0.5s ease-in-out;
 }
 
-.dialog {
+.dialog[open] {
   font-family: var(--extra-font-family);
   font-size: 14px;
-  padding: 32px 42px 32px;
+  padding: 30px;
   border: 2px solid var(--border);
   background: var(--background);
   width: 357px;
   text-transform: uppercase;
+  opacity: 0.6;
 }
 
 .dialog::backdrop {
   background-color: rgba(0, 0, 0, 0.75);
-}
-
-.dialog:not([open]) {
-  display: none;
-  opacity: 0;
-  pointer-events: none;
 }
 
 .dialog__container {
@@ -341,7 +355,7 @@
 .floppy-image {
   width: 21px;
   height: 21px;
-  stroke: var(--text-color);
+  stroke: var(--svg-color);
   margin-right: 8px;
   mix-blend-mode: difference;
   z-index: 1;
@@ -368,12 +382,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .dialog__floppy-image {
   stroke: var(--text-color);
   width: 90px;
   height: 40px;
+}
+
+.dialog__button {
+  width: 293px;
+  height: 38px;
+  text-transform: uppercase;
+  background: var(--background);
 }
 
 .button {
@@ -534,5 +556,5 @@
 }
 
 .footer {
-  margin-top: 50px;
+  margin-bottom: 103px;
 }
