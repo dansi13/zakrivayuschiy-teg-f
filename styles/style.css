@@ -337,7 +337,6 @@
   background: var(--background);
   width: 357px;
   text-transform: uppercase;
-  opacity: 0.6;
 }
 
 .dialog::backdrop {
@@ -382,7 +381,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .dialog__floppy-image {
