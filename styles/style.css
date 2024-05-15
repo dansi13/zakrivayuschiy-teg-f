@@ -121,6 +121,7 @@
 
 .theme-menu__button:focus-visible {
   opacity: 0.6;
+  outline: none;
 }
 
 .theme-menu__button::after {
@@ -133,18 +134,6 @@
 
 .theme-menu__button:disabled::after {
   color: var(--text-color);
-}
-
-@keyframes play {
-  0% {
-    left: -18px;
-  }
-  50% {
-    left: -14px;
-  }
-  100% {
-    left: -18px;
-  }
 }
 
 /* main */
@@ -170,8 +159,14 @@
 .card {
   border: 2px solid var(--border);
   background: var(--background);
-  width: min(698px, 99%);
+  width: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
   margin: 0 auto 52px auto;
+}
+
+@media (width <= 375px) {
+  .card {
+    width: 100%;
+  }
 }
 
 .card__title {
@@ -242,7 +237,7 @@
 
 @media (width <= 375px) {
   .card__text-container {
-    padding: 26px 24px;
+    padding: 24px 26px;
     margin-top: 2px;
   }
 }
@@ -250,6 +245,7 @@
 .card__text {
   font-family: var(--main-font-family);
   color: var(--text-color);
+  line-height: 21px;
 }
 
 .card__like-button-container {
@@ -476,18 +472,6 @@
   animation: expand 0.3s ease-in 0.1s alternate;
 }
 
-@keyframes expand {
-  0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.5;
-  }
-  100% {
-    scale: 1;
-  }
-}
-
 .like-icon .main-body {
   fill: var(--background);
   transition: fill 0.3s linear 0.05s;
@@ -504,18 +488,6 @@
 
 .like-icon.is-liked .sparks {
   animation: sparks__animation 0.3s ease-in 0.3s alternate;
-}
-
-@keyframes sparks__animation {
-  0% {
-    opacity: 0;
-  }
-  50% {
-    opacity: 100%;
-  }
-  100% {
-    opacity: 0;
-  }
 }
 
 .like-icon .core {
